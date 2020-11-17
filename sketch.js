@@ -1,5 +1,5 @@
 //hour, minute, second
-var hr, min, sec;
+var hr, mnt, sec;
 var hour_angle, min_angle, sec_angle;
 var arr = [1, 2, 3, 4, 5, 9, 7, 8, 9, 10, 11, 12];
 
@@ -90,14 +90,13 @@ function draw() {
 
   //get second, minute, hour
   sec = second();
-  min = minute();
+  mnt = minute();
   hr = hour();
 
   //transform their values into degrees
   sec_angle = Math.floor(map(sec, 0, 60, 0, 360));
-  min_angle = int(map(min, 0, 60, 0, 360)) + map(sec,0,60,0,6);
-  hour_angle = int(map(hr%12, 0, 24, 0, 360)) + map(min,0,60,0,30);
-  console.log(sec_angle);
+  min_angle = int(map(mnt, 0, 60, 0, 360)) + map(sec,0,60,0,6);
+  hour_angle = int(map(hr%12, 0, 24, 0, 360)) + map(mnt,0,60,0,30);
   drawNumber();
   drawLines();
   runSeconds(sec_angle);
